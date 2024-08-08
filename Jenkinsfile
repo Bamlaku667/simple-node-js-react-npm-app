@@ -1,18 +1,20 @@
 pipeline {
     agent any
+    tools {
+        nodejs 'nodejs' // This name should match the NodeJS tool name in Jenkins configuration
+    }
     stages {
         stage('Build') {
             steps {
-                sh 'node --version'
                 sh 'npm install'
+                sh 'node --version'
             }
         }
-        stage('Test') { 
+        stage('Test') {
             steps {
-                sh './jenkins/scripts/test.sh' 
+                sh './jenkins/scripts/test.sh'
             }
         }
-
         stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
