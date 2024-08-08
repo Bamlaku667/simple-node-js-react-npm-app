@@ -1,12 +1,8 @@
-import React, {StrictMode} from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
+import { render } from '@testing-library/react';
 import App from './App';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.createRoot(div).render(
-    <StrictMode>
-      <App />
-    </StrictMode>
-  );
+test('renders without crashing', () => {
+  const { container } = render(<App />);
+  expect(container).toBeInTheDocument();
 });
