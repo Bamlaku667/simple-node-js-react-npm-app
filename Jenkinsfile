@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        nodejs 'nodejs' // This name should match the NodeJS tool name in Jenkins configuration
+        nodejs 'recent node' // This name should match the NodeJS tool name in Jenkins configuration
     }
     stages {
         stage('Build') {
